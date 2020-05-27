@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Login">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="260dp"
+                android:layout_height="108dp"
+                android:layout_gravity="center"
+                android:src="@drawable/cars" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X-Uber"
+                android:textColor="@color/Negro"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:textSize="25dp"
+                />
+
+            <EditText
+                android:id="@+id/edit_L_mail"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="Correo"
+                android:textColorHint="@color/Negro"
+                android:layout_gravity="center"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/edit_n_perzonalizado"
+                android:padding="20dp"
+                />
+
+
+            <EditText
+                android:id="@+id/edit_L_pass"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Contraseña"
+                android:textColorHint="@color/Negro"
+                android:layout_gravity="center"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_n_perzonalizado"
+
+                android:padding="20dp"
+                />
+
+
+            <CheckBox
+                android:id="@+id/ver_contraseña"
+                android:layout_width="285dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Negro"
+                android:buttonTint="@color/Negro"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:layout_marginTop="15dp"
+                android:text="Ver Contraseña" />
+
+            <Button
+                android:id="@+id/btn_L_login"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:text="Iniciar Sesion"
+                android:backgroundTint="@color/Negro"
+                android:textColor="@color/Blanco"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/roundend_n_botton"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+
+</LinearLayout>

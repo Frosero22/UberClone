@@ -8,6 +8,8 @@
     android:background="@color/colorPrimary"
     tools:context=".OpcionDeSesion">
 
+
+
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -32,11 +34,11 @@
             android:textStyle="bold"/>
 
         <Button
+            android:id="@+id/btn_dLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundend_botton"
-
-            android:backgroundTint="@color/AzulClaro"
+            android:backgroundTint="@color/Negro"
             android:text="YA TENGO CUENTA"
             android:textColor="@color/Blanco"
             android:textStyle="bold"
@@ -44,6 +46,7 @@
             android:layout_marginLeft="30dp"/>
 
         <Button
+            android:id="@+id/btn_dRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
