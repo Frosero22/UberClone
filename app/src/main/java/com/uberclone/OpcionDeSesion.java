@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toolbar;
 
+import com.uberclone.Inclusiones.toolb;
+
 
 public class OpcionDeSesion extends AppCompatActivity {
 
@@ -19,6 +21,7 @@ public class OpcionDeSesion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opcion_de_sesion);
+        toolb.mostrarT(this,"Tipo de Usuario",true);
 
 
         xRegister = findViewById(R.id.btn_dRegister);

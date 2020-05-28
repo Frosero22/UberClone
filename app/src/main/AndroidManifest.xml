@@ -9,18 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".Login"
             android:parentActivityName=".OpcionDeSesion"
             android:label="Pantalla de Login">
 
         </activity>
-        <activity android:name=".Registro" />
+
+        <activity
+            android:name=".Registro"
+            android:parentActivityName=".OpcionDeSesion"/>
 
         <activity android:name=".OpcionDeSesion"
             android:label="Seleccionar Tipo de Usuario"
             android:parentActivityName=".MainTipoUsuario"/>
 
-        <activity android:name=".MainTipoUsuario">
+        <activity
+            android:name=".MainTipoUsuario">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

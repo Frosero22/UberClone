@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Login">
 
+    <include layout="@layout/toolbar_action_bar"/>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="660dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:paddingTop="50dp"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
             <ImageView
@@ -27,95 +29,95 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="X-Uber - Registro"
-                android:textColor="@color/Negro"
-                android:textStyle="bold"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:textSize="25dp" />
+                android:text="X-Uber - Registro"
+                android:textColor="@color/Negro"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edit_R_nombre"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="Nombres"
-                android:textColorHint="@color/Negro"
                 android:layout_gravity="center"
-                android:drawablePadding="10dp"
                 android:layout_marginTop="35dp"
                 android:background="@drawable/edit_n_perzonalizado"
+                android:drawablePadding="10dp"
+                android:hint="Nombres"
+                android:inputType="textCapCharacters"
                 android:padding="20dp"
-                android:inputType="textCapCharacters" />
+                android:textColorHint="@color/Negro" />
 
 
             <EditText
                 android:id="@+id/edit_R_apellido"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Apellidos"
-                android:textColorHint="@color/Negro"
                 android:layout_gravity="center"
-                android:drawablePadding="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/edit_n_perzonalizado"
-                android:padding="20dp" />
+                android:drawablePadding="10dp"
+                android:hint="Apellidos"
+                android:inputType="textCapCharacters"
+                android:padding="20dp"
+                android:textColorHint="@color/Negro" />
 
             <EditText
                 android:id="@+id/edit_R_mail"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Correo"
-            android:textColorHint="@color/Negro"
-            android:layout_gravity="center"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edit_n_perzonalizado"
-            android:padding="20dp" />
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_n_perzonalizado"
+                android:drawablePadding="10dp"
+                android:hint="Correo"
+                android:inputType="textEmailAddress"
+                android:padding="20dp"
+                android:textColorHint="@color/Negro" />
 
             <EditText
                 android:id="@+id/edit_R_pass"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Contraseña"
-                android:textColorHint="@color/Negro"
                 android:layout_gravity="center"
-                android:drawablePadding="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/edit_n_perzonalizado"
-                android:padding="20dp" />
+                android:drawablePadding="10dp"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:padding="20dp"
+                android:textColorHint="@color/Negro" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
+                android:layout_margin="20dp"
                 android:gravity="bottom"
-                android:layout_margin="20dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btn_R_register"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/roundend_botton"
                     android:backgroundTint="@color/Negro"
                     android:text="REGISTRAR"
-                    android:textColor="@color/Blanco"
-                    android:layout_marginRight="5dp"/>
+                    android:textColor="@color/Blanco" />
 
                 <Button
                     android:id="@+id/btn_R_cancelar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/roundend_botton"
-                    android:textColor="@color/Blanco"
                     android:backgroundTint="@color/Negro"
                     android:text="CANCELAR"
-                    android:layout_marginLeft="5dp"/>
+                    android:textColor="@color/Blanco" />
 
             </LinearLayout>
 
@@ -125,8 +127,4 @@
     </ScrollView>
 
 
-
-
-
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

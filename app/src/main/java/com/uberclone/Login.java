@@ -16,6 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.uberclone.Inclusiones.toolb;
 
 import dmax.dialog.SpotsDialog;
 
@@ -35,6 +36,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        toolb.mostrarT(this,"Seleccion Tipo de Sesion",true);
 
         lMail = findViewById(R.id.edit_L_mail);
         lContraseña = findViewById(R.id.edit_L_pass);

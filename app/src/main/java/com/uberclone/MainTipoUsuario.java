@@ -3,25 +3,36 @@ package com.uberclone;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.uberclone.Inclusiones.toolb;
+
 public class MainTipoUsuario extends AppCompatActivity {
 
     Button sConductor, sCliente;
+    SharedPreferences mPreferencia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toolb.mostrarT(this,"X-UBER",false);
 
         sConductor = findViewById(R.id.btn_conductor);
         sCliente = findViewById(R.id.btn_cliente);
 
+        mPreferencia = getApplicationContext().getSharedPreferences("tipoUsuario",MODE_PRIVATE);
+
+        final SharedPreferences.Editor editor = mPreferencia.edit();
+
         sCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("user","cliente");
+                editor.apply();
                 Autenticacion();
             }
         });
@@ -29,6 +40,8 @@ public class MainTipoUsuario extends AppCompatActivity {
         sConductor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("user","conductor");
+                editor.apply();
                 Autenticacion();
             }
         });
