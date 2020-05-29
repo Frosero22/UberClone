@@ -1,4 +1,4 @@
-package com.uberclone;
+package com.uberclone.Activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.uberclone.Inclusiones.toolb;
+import com.uberclone.R;
 
 public class MainTipoUsuario extends AppCompatActivity {
 

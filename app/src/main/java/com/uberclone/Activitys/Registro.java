@@ -1,4 +1,4 @@
-package com.uberclone;
+package com.uberclone.Activitys;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.uberclone.Inclusiones.toolb;
 import com.uberclone.Modelos.Usuario;
+import com.uberclone.R;
 
 import dmax.dialog.SpotsDialog;
 
@@ -28,11 +29,12 @@ public class Registro extends AppCompatActivity {
     Button rRegistrar, rCancelar;
     SharedPreferences mPreferencia;
     EditText rNombres, rApellidos, rCorreo, rContraseña;
-AlertDialog mDialogo;
+    AlertDialog mDialogo;
 
 
 
     FirebaseAuth mAuth;
+
     DatabaseReference mDatabase;
 
     @Override
@@ -95,19 +97,22 @@ AlertDialog mDialogo;
                 mAuth.createUserWithEmailAndPassword(UCorreo,UContraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if(task.isSuccessful()){
                            String id = mAuth.getCurrentUser().getUid();
                             GuardarRegistro(id,UNombre,UApellidos,UCorreo,UContraseña);
                             mDialogo.dismiss();
                             Toast.makeText(Registro.this, "USUARIO REGISTRADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Registro.this,Login.class);
+                            startActivity(intent);
 
                         }else{
                             mDialogo.dismiss();
                             Toast.makeText(Registro.this, "OCURRIO UN ERROR EN EL REGISTRO", Toast.LENGTH_SHORT).show();
                         }
-
-
+                        
                     }
+
                 });
 
 
@@ -124,19 +129,17 @@ AlertDialog mDialogo;
             Toast.makeText(this, "POR FAVOR INGRESE TODOS LOS DATOS", Toast.LENGTH_SHORT).show();
 
         }
-
-
     }
 
     private void GuardarRegistro(String id,String UNombre, String UApellidos,String UCorreo,String UContraseña){
         String UsuarioSeleccionado = mPreferencia.getString("user","");
-
 
         Usuario usuario = new Usuario();
         usuario.setNombre(UNombre);
         usuario.setApellidos(UApellidos);
         usuario.setEmail(UCorreo);
         usuario.setContraseña(UContraseña);
+
 
 
         if(UsuarioSeleccionado.equals("conductor")){
@@ -159,6 +162,7 @@ AlertDialog mDialogo;
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
+
                         Toast.makeText(Registro.this, "USUARIO REGISTRADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
 
                     }else{
@@ -166,9 +170,10 @@ AlertDialog mDialogo;
                         Toast.makeText(Registro.this, "USUARIO NO REGISTRADO", Toast.LENGTH_SHORT).show();
 
                     }
-                }
-            });
 
+                }
+
+            });
 
         }
 

@@ -1,4 +1,4 @@
-package com.uberclone;
+package com.uberclone.Activitys;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.uberclone.Inclusiones.toolb;
+import com.uberclone.R;
 
 import dmax.dialog.SpotsDialog;
 
