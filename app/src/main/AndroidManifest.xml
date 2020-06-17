@@ -11,13 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activitys.Conductores.RegisterConductor"></activity>
+        <activity android:name=".Activitys.Conductores.MapaConductor"></activity>
+        <activity android:name=".Activitys.Clientes.MapaCliente" />
+        <activity android:name=".Activitys.Conductores.RegisterConductor" />
         <activity
             android:name=".Activitys.Login"
             android:label="Pantalla de Login"
-            android:parentActivityName=".Activitys.OpcionDeSesion"></activity>
+            android:parentActivityName=".Activitys.OpcionDeSesion" />
         <activity
-            android:name=".Activitys.Registro"
+            android:name=".Activitys.Clientes.RegistroCliente"
             android:parentActivityName=".Activitys.OpcionDeSesion" />
         <activity
             android:name=".Activitys.OpcionDeSesion"
@@ -30,6 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data android:name="com.google.android.geo.API.KEY" android:value="@string/google_maps_key"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_maps_key"/>
+
     </application>
 
 </manifest>

@@ -57,6 +57,18 @@
             android:text="REGISTRARME AHORA"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"/>
+        <Button
+            android:id="@+id/btn_dRegresar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:background="@drawable/roundend_botton"
+            android:backgroundTint="@color/Negro"
+            android:textColor="@color/Blanco"
+            android:layout_marginTop="10dp"
+            android:text="VOLVER A ELEGIR TIPO DE USUARIO"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"/>
 
 
 

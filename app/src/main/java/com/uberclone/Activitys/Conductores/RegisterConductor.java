@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,9 +19,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.uberclone.Activitys.Clientes.RegistroCliente;
 import com.uberclone.Activitys.Login;
+import com.uberclone.Activitys.MainTipoUsuario;
 import com.uberclone.Activitys.OpcionDeSesion;
-import com.uberclone.Activitys.Registro;
+import com.uberclone.Inclusiones.Preferencias;
 import com.uberclone.Inclusiones.toolb;
 import com.uberclone.Modelos.Conductor;
 import com.uberclone.Modelos.Usuario;
@@ -64,7 +67,7 @@ public class RegisterConductor extends AppCompatActivity {
         rcRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Registrar();
+                Validacion();
             }
         });
 
@@ -72,6 +75,8 @@ public class RegisterConductor extends AppCompatActivity {
         rcCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Preferencias.savePreferenciaBoolean(RegisterConductor.this, false, "estado.buton.sesion");
+                Preferencias.savePreferenciaBoolean(RegisterConductor.this, false, "estado");
                 CancelarRegistro();
             }
         });
@@ -79,6 +84,8 @@ public class RegisterConductor extends AppCompatActivity {
     }
 
     private void CancelarRegistro(){
+        Preferencias.savePreferenciaBoolean(RegisterConductor.this, false, "estado.buton.sesion");
+        Preferencias.savePreferenciaBoolean(RegisterConductor.this, false, "estado");
         Intent intent = new Intent(RegisterConductor.this, OpcionDeSesion.class);
         startActivity(intent);
     }
@@ -103,9 +110,7 @@ public class RegisterConductor extends AppCompatActivity {
                             String id = mAuth.getCurrentUser().getUid();
                             GuardarRegistro(id,UNombre,UApellidos,UPlaca,UMarca,UCorreo,UContraseña);
                             rcDialogo.dismiss();
-                            Toast.makeText(RegisterConductor.this, "USUARIO REGISTRADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterConductor.this, Login.class);
-                            startActivity(intent);
+
                         }else{
                             rcDialogo.dismiss();
                             Toast.makeText(RegisterConductor.this, "OCURRIO UN ERROR EN EL REGISTRO", Toast.LENGTH_SHORT).show();
@@ -146,7 +151,9 @@ public class RegisterConductor extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(RegisterConductor.this, "CONDUCTOR INCORPORADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
-
+                    Intent intent = new Intent(RegisterConductor.this, MapaConductor.class);
+                    startActivity(intent);
+                    finish();
                 }else{
 
                     Toast.makeText(RegisterConductor.this, "CONDUCTOR NO INCORPORADO", Toast.LENGTH_SHORT).show();
@@ -156,5 +163,35 @@ public class RegisterConductor extends AppCompatActivity {
         });
 
 
+    }
+
+    public void Validacion() {
+        new AlertDialog.Builder(RegisterConductor.this)
+                .setIcon(R.drawable.cars)
+                .setTitle("ALERTA")
+
+                .setMessage("¿ESTA SEGURO DE REGISTRARSE COMO UN CONDUCTOR??")
+                .setNegativeButton("NEGAR",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+
+                            }
+                        })
+                .setPositiveButton("REGISTARA CONDUCTOR",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                Registrar();
+
+                            }
+
+
+                        })
+                .show()
+                .setCancelable(false);
     }
 }
