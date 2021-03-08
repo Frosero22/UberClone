@@ -4,13 +4,30 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.uberclone.Activitys.Clientes.MapaCliente;
 import com.uberclone.R;
 
-public class MapaConductor extends AppCompatActivity {
-
+public class MapaConductor extends AppCompatActivity implements OnMapReadyCallback {
+    private GoogleMap mMap;
+    private SupportMapFragment mMapFragmet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapa_conductor);
+
+
+
+        mMapFragmet = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        assert mMapFragmet != null;
+        mMapFragmet.getMapAsync(MapaConductor.this);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     }
 }

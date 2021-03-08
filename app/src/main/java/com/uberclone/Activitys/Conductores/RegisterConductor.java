@@ -78,6 +78,7 @@ public class RegisterConductor extends AppCompatActivity {
                 Preferencias.savePreferenciaBoolean(RegisterConductor.this, false, "estado.buton.sesion");
                 Preferencias.savePreferenciaBoolean(RegisterConductor.this, false, "estado");
                 CancelarRegistro();
+                finish();
             }
         });
 
@@ -88,6 +89,7 @@ public class RegisterConductor extends AppCompatActivity {
         Preferencias.savePreferenciaBoolean(RegisterConductor.this, false, "estado");
         Intent intent = new Intent(RegisterConductor.this, OpcionDeSesion.class);
         startActivity(intent);
+        finish();
     }
 
     private void Registrar(){
